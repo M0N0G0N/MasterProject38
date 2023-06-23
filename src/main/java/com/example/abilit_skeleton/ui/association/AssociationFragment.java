@@ -1,6 +1,7 @@
 package com.example.abilit_skeleton.ui.association;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.example.abilit_skeleton.R;
 import com.example.abilit_skeleton.databinding.FragmentAssociationBinding;
 import com.example.abilit_skeleton.object.association.Association;
 import com.example.abilit_skeleton.object.tag.Tag;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,6 +35,7 @@ public class AssociationFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentAssociationBinding.inflate(inflater, container, false);
+
 
         return binding.getRoot();
     }
@@ -57,9 +60,9 @@ public class AssociationFragment extends Fragment {
         List<Integer> images = Arrays.asList(R.drawable.ic_dashboard_black_24dp);
         List<Tag> tags = Arrays.asList(Tag.Basketball,Tag.Sports);
 
-        Association association = new Association(1, "1", "1", "1", "1", R.drawable.ic_dashboard_black_24dp, "hello comment tu vas connard", images, tags);
+        Association association = new Association(1, "1", "1", "1", "1", R.drawable.ic_dashboard_black_24dp, "hello comment tu vas", images, tags);
         associationArrayList.add(association);
-        Association association2 = new Association(1, "1", "1", "1", "1", R.drawable.ic_home_black_24dp, "hello0000000000000000000000000000000000", images, tags);
+        Association association2 = new Association(2, "1", "2", "1", "1", R.drawable.ic_home_black_24dp, "hello0000000000000000000000000000000000", images, tags);
         associationArrayList.add(association2);
     }
 

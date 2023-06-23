@@ -1,17 +1,26 @@
 package com.example.abilit_skeleton.ui.association;
 
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.abilit_skeleton.MainActivity;
 import com.example.abilit_skeleton.R;
 import com.example.abilit_skeleton.object.association.Association;
+import com.example.abilit_skeleton.ui.dashboard.DashboardFragment;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -30,7 +39,7 @@ public class AssociationAdapter extends RecyclerView.Adapter<AssociationAdapter.
     @NonNull
     @Override
     public AssociationHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.asso_card_view,parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.asso_card,parent, false);
         return new AssociationHolder(view);
     }
 
@@ -38,6 +47,15 @@ public class AssociationAdapter extends RecyclerView.Adapter<AssociationAdapter.
     public void onBindViewHolder(@NonNull AssociationHolder holder, int position) {
         Association association = associations.get(position);
         holder.setDetails(association);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"you clicked: " +association.getId(), Toast.LENGTH_SHORT ).show();
+                Intent myIntent = new Intent(context, MainActivity.class);
+                context.startActivity(myIntent);
+            }
+        });
     }
 
     @Override
